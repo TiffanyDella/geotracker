@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
       status = await Geolocator.requestPermission();
     }
     if (status == LocationPermission.always || status == LocationPermission.whileInUse) {
-      _timer = Timer.periodic(const Duration(seconds: 10), (timer) async {
+      _timer = Timer.periodic(const Duration(seconds: 30), (timer) async {
         Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
         String log = 'Latitude: ${position.latitude}, Longitude: ${position.longitude}, Time: ${DateTime.now()}';
         setState(() {
